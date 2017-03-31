@@ -10,6 +10,7 @@
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\supervisor</object>
+    <object>objects\wallObj</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\testRoom</room>
