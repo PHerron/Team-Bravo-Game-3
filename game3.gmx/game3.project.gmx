@@ -9,12 +9,15 @@
     <sound>sound\playerHurt</sound>
     <sound>sound\gameOver</sound>
   </sounds>
-  <sprites name="sprites"/>
+  <sprites name="sprites">
+    <sprite>sprites\heroSprite</sprite>
+  </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\supervisor</object>
     <object>objects\wallObj</object>
+    <object>objects\hero</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\testRoom</room>
