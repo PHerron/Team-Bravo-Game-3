@@ -7,7 +7,63 @@
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
-  <events/>
+  <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// README Updated: 23:20 1 April 2017
+
+// Updates to README
+/**
+ * If you need to add anything to this README,
+ * please change the update time and date
+ * so we know to check it.
+ * Thanks bunches.
+ */
+
+// Room Speed
+/**
+ * Room speed is set to 60 in this game,
+ * and it is much smoother.
+ * If you create anything with a speed,
+ * it should be half what it is at room_speed = 30.
+ * Likewise, things that use room_speed, like alarms,
+ * need to have their activation values doubled.
+ * This goes for counters and anything else
+ * that increments or decrements each step, as well.
+ * Just remember:
+ * THERE ARE NOW 60 STEPS PER SECOND. TWICE AS MANY.
+ * PROCEED WITH CAUTION.
+ */
+
+// Movement
+/**
+ * If you need to give an NPC or an enemy pixel perfect movement,
+ * feel free to steal the code from the hero object.
+ * The code in question is the action hero:Step:Movement .
+ * Most of it is from Shaun Spalding's YouTube channel anyway,
+ * so it's not like it's all mine.
+ */
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>0</PhysicsObjectShape>

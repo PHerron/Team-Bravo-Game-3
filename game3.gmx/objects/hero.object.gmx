@@ -3,7 +3,7 @@
   <spriteName>heroSprite</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-5</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -27,13 +27,40 @@
             <kind>1</kind>
             <string>/// State Variables
 
-// Health etc.
-hp = 100;
-mp = 100;
-state = "alive";
+// State, Health, Mana
+// Variables
+hp = 100; // Health of Hero; if &lt;= 0, die
+mp = 100; // Mana of Hero; used for spells, special abilities
+state = "alive"; // State of Hero; if hp &lt;= 0, = "dead"
+// Reference
+
+// Controls
+// Variables
+// Reference
+upKey = false; // Step:Controls
+downKey = false; // Step:Controls
+leftKey = false; // Step:Controls
+rightKey = false; // Step:Controls
+hAxis = 0; // Step:Controls
+vAxis = 0; // Step:Controls
+hLookAxis = 0; // Step:Controls
+vLookAxis = 0; // Step:Controls
+useKey = false; // Step:Controls
+attackKey = false; // Step:Controls
+blockKey = false; // Step:Controls
+specialKeyRight = false; // Step:Controls
+specialKeyLeft = false; // Step:Controls
+
 
 // Movement
-moveDist = 64;
+// Variables
+moveSpeed = 2.4; // Base speed of Hero; vary until comfortable
+// Reference
+hsp = 0; // Step:Movement
+vsp = 0; // Step:Movement
+hValue = 0; // Step:Movement
+vValue = 0; // Step:Movement
+
 </string>
           </argument>
         </arguments>
@@ -59,11 +86,11 @@ moveDist = 64;
             <string>/// Controls
 
 // Movement
-// Keys
-upKey = -keyboard_check(ord('w')) + -gamepad_button_check(0, gp_padu); // Upward movement
-downKey = keyboard_check(ord('s')) + gamepad_button_check(0, gp_padd); // Downward movement
-leftKey = keyboard_check(ord('a')) + gamepad_button_check(0, gp_padl); // Left movement
-rightKey = keyboard_check(ord('d')) + gamepad_button_check(0, gp_padr); // Right movement
+// Keys and D-Pad
+upKey = -keyboard_check(ord('W')) + -gamepad_button_check(0, gp_padu); // Upward movement
+downKey = keyboard_check(ord('S')) + gamepad_button_check(0, gp_padd); // Downward movement
+leftKey = -keyboard_check(ord('A')) + -gamepad_button_check(0, gp_padl); // Left movement
+rightKey = keyboard_check(ord('D')) + gamepad_button_check(0, gp_padr); // Right movement
 
 // Left Stick
 hAxis = gamepad_axis_value(0, gp_axislh); // Horizontal left-stick movement
@@ -74,11 +101,92 @@ hLookAxis = gamepad_axis_value(0, gp_axisrh); // Horizontal Aiming
 vLookAxis = gamepad_axis_value(0, gp_axisrv); // Vertical Aiming
 
 // Attacking, Speaking, Selection
-useKey = keyboard_check_pressed(ord('k')) + gamepad_button_check_pressed(0, gp_face1); //Selection key
-attackKey = keyboard_check_pressed(ord('l')) + gamepad_button_check_pressed(0, gp_shoulderr); // Attack key
+useKey = keyboard_check_pressed(ord('K')) + gamepad_button_check_pressed(0, gp_face1); //Selection key
+attackKey = keyboard_check_pressed(ord('L')) + gamepad_button_check_pressed(0, gp_shoulderr); // Attack key
 blockKey = keyboard_check(ord(';')) + gamepad_button_check(0, gp_shoulderl); // Block key
-specialKey1 = keyboard_check_pressed(ord('p')) + gamepad_button_check_pressed(0, gp_shoulderrb); // Right-trigger special attack
-specialKey2 = keyboard_check_pressed(ord('o')) + gamepad_button_check_pressed(0, gp_shoulderlb); // Left-trigger special attack
+specialKeyRight = keyboard_check_pressed(ord('P')) + gamepad_button_check_pressed(0, gp_shoulderrb); // Right-trigger special attack
+specialKeyLeft = keyboard_check_pressed(ord('O')) + gamepad_button_check_pressed(0, gp_shoulderlb); // Left-trigger special attack
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Movement
+
+// Set Direction
+// Horizontal Movement
+hValue = rightKey + leftKey; // Booleans return 1 or 0; if both, gives 0
+if(hAxis &gt;= 0.15 or hAxis &lt;= -0.15) hValue = hAxis; // Hard-sets horizontal deadzone and allows left-stick for movement
+if(hValue &gt; 1) hValue = 1; // hValue goes no higher than 1
+else if(hValue &lt; -1) hValue = -1; // hValue goes no lower than -1
+
+// Vertical Movement
+vValue = upKey + downKey; // Booleans return 1 or 0; if both, gives 0
+if(vAxis &gt;= 0.15 or vAxis &lt;= -0.15) vValue = vAxis; // Hard-sets vertical deadzone and allows left-stick vertical movememt
+if(vValue &gt; 1) vValue = 1; // vValue goes no higher than 1
+else if(vValue &lt; -1) vValue = -1; // vValue goes no lower than -1
+
+// Set Speeds
+hsp = hValue * moveSpeed; // Set horizontal speed
+vsp = vValue * moveSpeed; // Set vertical speed
+
+// Collision Detection and Correction
+if(place_meeting(x+hsp, y, wallObj)) { // Horizontal Check
+    while(!place_meeting(x+sign(hsp), y, wallObj)) x += sign(hsp); // If close to wall but not against it, move until against it
+    hsp = 0; // If against wall, stop moving
+} // end if
+if(place_meeting(x, y+vsp, wallObj)) { // Vertical Check
+    while(!place_meeting(x, y+sign(vsp), wallObj)) y += sign(vsp); // If close to wall but not against it, move until against it
+    vsp = 0; // If against wall, stop moving
+} // end if
+
+// Move Hero
+x += hsp; // Moves Hero in set speed and direction horizontally
+y += vsp; // Moves Hero in set speed and direction vertically
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Debug
+
+draw_self();
+
+// Display Debug Text
+draw_text(x+20, y-30, 
+          "hValue " + string(hValue) + "; vValue " + string(vValue)); // Show movement directions
 </string>
           </argument>
         </arguments>

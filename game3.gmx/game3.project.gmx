@@ -11,6 +11,7 @@
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\heroSprite</sprite>
+    <sprite>sprites\floorSprite</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -18,6 +19,7 @@
     <object>objects\supervisor</object>
     <object>objects\wallObj</object>
     <object>objects\hero</object>
+    <object>objects\ground</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\testRoom</room>
