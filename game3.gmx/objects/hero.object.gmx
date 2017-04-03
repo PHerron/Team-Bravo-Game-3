@@ -60,6 +60,14 @@ vsp = 0; // Step:Movement
 hValue = 0; // Step:Movement
 vValue = 0; // Step:Movement
 
+// Aiming
+// Variables
+turnSpeed = 10; // Set the speed of turning with right stick
+// Reference
+rAxisDirection = 0; // Step:Set Variables
+rAxisTotal = 0; // Step:Set Variables
+rAxisSpeed = 0; // Step:Set Variables
+rAxisSpeedMax = 0; // Step:Set Variables
 </string>
           </argument>
         </arguments>
@@ -125,6 +133,33 @@ ds_map_add(inv, "arm", leatherArmor); // Adds Leather Armor at start of game
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// Set Variables
+
+// Right Stick
+rAxisDirection = point_direction(0, 0, vLookAxis, hLookAxis); // Takes axis output and returns a direction
+rAxisTotal = hLookAxis + vLookAxis; // Sum of horizontal and vertical stick movement; 0-1
+rAxisSpeed = mean(abs(hLookAxis), abs(vLookAxis)); // Current Turn Speed
+rAxisSpeedMax = max(abs(hLookAxis), abs(vLookAxis)); // Max Turn Speed
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>/// Controls
 
 // Movement
@@ -140,7 +175,7 @@ vAxis = gamepad_axis_value(0, gp_axislv); // Vertical left-stick movement
 
 // Right Stick
 hLookAxis = gamepad_axis_value(0, gp_axisrh); // Horizontal Aiming
-vLookAxis = gamepad_axis_value(0, gp_axisrv); // Vertical Aiming
+vLookAxis = -gamepad_axis_value(0, gp_axisrv); // Vertical Aiming
 
 // Attacking, Speaking, Selection
 useKey = keyboard_check_pressed(ord('K')) + gamepad_button_check_pressed(0, gp_face1); //Selection key
@@ -173,13 +208,13 @@ specialKeyLeft = keyboard_check_pressed(ord('O')) + gamepad_button_check_pressed
 // Set Direction
 // Horizontal Movement
 hValue = rightKey + leftKey; // Booleans return 1 or 0; if both, gives 0
-if(hAxis &gt;= 0.15 or hAxis &lt;= -0.15) hValue = hAxis; // Hard-sets horizontal deadzone and allows left-stick for movement
+if(abs(hAxis) &gt; 0.2) hValue = hAxis; // Hard-sets horizontal deadzone and allows left-stick for movement
 if(hValue &gt; 1) hValue = 1; // hValue goes no higher than 1
 else if(hValue &lt; -1) hValue = -1; // hValue goes no lower than -1
 
 // Vertical Movement
 vValue = upKey + downKey; // Booleans return 1 or 0; if both, gives 0
-if(vAxis &gt;= 0.15 or vAxis &lt;= -0.15) vValue = vAxis; // Hard-sets vertical deadzone and allows left-stick vertical movememt
+if(abs(vAxis) &gt; 0.2) vValue = vAxis; // Hard-sets vertical deadzone and allows left-stick vertical movememt
 if(vValue &gt; 1) vValue = 1; // vValue goes no higher than 1
 else if(vValue &lt; -1) vValue = -1; // vValue goes no lower than -1
 
@@ -191,15 +226,78 @@ vsp = vValue * moveSpeed; // Set vertical speed
 if(place_meeting(x+hsp, y, wallObj)) { // Horizontal Check
     while(!place_meeting(x+sign(hsp), y, wallObj)) x += sign(hsp); // If close to wall but not against it, move until against it
     hsp = 0; // If against wall, stop moving
-} // end if
+} // end if line21
 if(place_meeting(x, y+vsp, wallObj)) { // Vertical Check
     while(!place_meeting(x, y+sign(vsp), wallObj)) y += sign(vsp); // If close to wall but not against it, move until against it
     vsp = 0; // If against wall, stop moving
-} // end if
+} // end if line25
 
 // Move Hero
 x += hsp; // Moves Hero in set speed and direction horizontally
 y += vsp; // Moves Hero in set speed and direction vertically
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Aiming
+
+// Right Stick Turning
+if(abs(hLookAxis) &gt; 0.3 || abs(vLookAxis) &gt; 0.3) { // If trying to turn; set deadzones
+    angleDifference = angle_difference(rAxisDirection, hero.image_angle); // Set difference between current facing and target facing
+    if(angleDifference != 0) { // If Hero can turn
+        //turning = true;
+        turnRate = turnSpeed * rAxisSpeed; // Set rate of turning
+        hero.image_angle += median(-turnRate, angleDifference, turnRate); // Change Hero aim angle
+        if(abs(hero.image_angle) &gt;= 360) { // Don't let angle go over 359
+            hero.image_angle = 0;
+        } // end if line10
+    } // end if line6
+} // end if line4
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Test Shooting
+
+// Throw Sword
+if(attackKey) {
+    instance_create(x, y, woodSword);
+    woodSword.speed = 4;
+    woodSword.direction = image_angle + 90;
+    woodSword.image_angle = image_angle;
+}
 </string>
           </argument>
         </arguments>
@@ -227,8 +325,21 @@ y += vsp; // Moves Hero in set speed and direction vertically
 draw_self();
 
 // Display Debug Text
-draw_text(x+20, y-30, 
-          "hValue " + string(hValue) + "; vValue " + string(vValue)); // Show movement directions
+// Movement Axes
+draw_text(view_xview[0]+10, view_yview[0]+10, 
+          "hAxis: " + string(hAxis));
+draw_text(view_xview[0]+10, view_yview[0]+20, 
+          "vAxis: " + string(hAxis));
+// Aiming Axes
+draw_text(view_xview[0]+10, view_yview[0]+30, 
+          "hLookAxis: " + string(hLookAxis));
+draw_text(view_xview[0]+10, view_yview[0]+40, 
+          "vLookAxis: " + string(vLookAxis));
+// Stats
+draw_text(view_xview[0]+10, view_yview[0]+50, 
+          "hp: " + string(hp));
+draw_text(view_xview[0]+10, view_yview[0]+60, 
+          "mp: " + string(mp));
 </string>
           </argument>
         </arguments>
