@@ -51,7 +51,6 @@ blockKey = false; // Step:Controls
 specialKeyRight = false; // Step:Controls
 specialKeyLeft = false; // Step:Controls
 
-
 // Movement
 // Variables
 moveSpeed = 2.4; // Base speed of Hero; vary until comfortable
@@ -61,6 +60,49 @@ vsp = 0; // Step:Movement
 hValue = 0; // Step:Movement
 vValue = 0; // Step:Movement
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Inventory
+
+// Initialize Map
+inv = ds_map_create(); // Initialize inventory map
+/**
+ * Using ds_map_add(inv, category, item)
+ * you can add an item to the Hero's inventory.
+ * Categories (in the format: Name (Description)):
+ *     con (consumable, like potions)
+ *     wep (weapon)
+ *     shl (shield)
+ *     arm (armor)
+ *     key (key items)
+ */
+ 
+// Money
+// Even though it isn't part of the inv map, I felt like it belongs here
+coins = 0; // Money of Hero; used in the shop
+
+// Initial Equipment
+ds_map_add(inv, "wep", woodSword); // Adds Wooden Sword at start of game
+ds_map_add(inv, "shl", woodShield); // Adds Wooden Shield at start of game
+ds_map_add(inv, "arm", leatherArmor); // Adds Leather Armor at start of game
 </string>
           </argument>
         </arguments>

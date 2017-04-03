@@ -12,14 +12,41 @@
   <sprites name="sprites">
     <sprite>sprites\heroSprite</sprite>
     <sprite>sprites\floorSprite</sprite>
+    <sprite>sprites\woodSwordSprite</sprite>
+    <sprite>sprites\woodShieldSprite</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\supervisor</object>
-    <object>objects\wallObj</object>
-    <object>objects\hero</object>
-    <object>objects\ground</object>
+    <objects name="Character">
+      <object>objects\hero</object>
+    </objects>
+    <objects name="Terrain">
+      <object>objects\wallObj</object>
+      <object>objects\ground</object>
+    </objects>
+    <objects name="Items">
+      <object>objects\item</object>
+      <objects name="Weapons">
+        <object>objects\weapon</object>
+        <object>objects\woodSword</object>
+      </objects>
+      <objects name="Shields">
+        <object>objects\shield</object>
+        <object>objects\woodShield</object>
+      </objects>
+      <objects name="Armor">
+        <object>objects\armor</object>
+        <object>objects\leatherArmor</object>
+      </objects>
+      <objects name="Consumables">
+        <object>objects\consumable</object>
+      </objects>
+      <objects name="Key Items">
+        <object>objects\keyItem</object>
+      </objects>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\testRoom</room>
