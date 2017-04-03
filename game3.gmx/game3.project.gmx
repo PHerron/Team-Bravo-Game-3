@@ -16,11 +16,12 @@
     <sprite>sprites\floorSprite</sprite>
     <sprite>sprites\woodSwordSprite</sprite>
     <sprite>sprites\woodShieldSprite</sprite>
-    <sprite>sprites\sprite4</sprite>
+    <sprite>sprites\wallSpr</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <objects name="objects">
+    <object>objects\pauseControl</object>
     <object>objects\supervisor</object>
     <objects name="Character">
       <object>objects\hero</object>
@@ -52,6 +53,7 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\beginningRm</room>
     <room>rooms\testRoom</room>
   </rooms>
   <help>
