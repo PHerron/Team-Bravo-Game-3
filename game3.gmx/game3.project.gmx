@@ -8,12 +8,15 @@
     <sound>sound\enemyHurt</sound>
     <sound>sound\playerHurt</sound>
     <sound>sound\gameOver</sound>
+    <sound>sound\coinSnd</sound>
+    <sound>sound\explosionSnd</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\heroSprite</sprite>
     <sprite>sprites\floorSprite</sprite>
     <sprite>sprites\woodSwordSprite</sprite>
     <sprite>sprites\woodShieldSprite</sprite>
+    <sprite>sprites\sprite4</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
