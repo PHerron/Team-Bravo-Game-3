@@ -62,7 +62,7 @@ vValue = 0; // Step:Movement
 
 // Aiming
 // Variables
-turnSpeed = 10; // Set the speed of turning with right stick
+turnSpeed = 15; // Set the speed of turning with right stick
 // Reference
 rAxisDirection = 0; // Step:Set Variables
 rAxisTotal = 0; // Step:Set Variables
@@ -136,7 +136,7 @@ ds_map_add(inv, "arm", leatherArmor); // Adds Leather Armor at start of game
             <string>/// Set Variables
 
 // Right Stick
-rAxisDirection = point_direction(0, 0, vLookAxis, hLookAxis); // Takes axis output and returns a direction
+rAxisDirection = point_direction(0, 0, vLookAxis, hLookAxis) + 90; // Takes axis output and returns a direction
 rAxisTotal = hLookAxis + vLookAxis; // Sum of horizontal and vertical stick movement; 0-1
 rAxisSpeed = mean(abs(hLookAxis), abs(vLookAxis)); // Current Turn Speed
 rAxisSpeedMax = max(abs(hLookAxis), abs(vLookAxis)); // Max Turn Speed
@@ -293,10 +293,7 @@ if(abs(hLookAxis) &gt; 0.3 || abs(vLookAxis) &gt; 0.3) { // If trying to turn; s
 
 // Throw Sword
 if(attackKey) {
-    instance_create(x, y, woodSword);
-    woodSword.speed = 4;
-    woodSword.direction = image_angle + 90;
-    woodSword.image_angle = image_angle;
+    instance_create(x, y, testProjectile);
 }
 </string>
           </argument>

@@ -17,6 +17,7 @@
     <sprite>sprites\woodSwordSprite</sprite>
     <sprite>sprites\woodShieldSprite</sprite>
     <sprite>sprites\wallSpr</sprite>
+    <sprite>sprites\testProjectileSprite</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -51,6 +52,7 @@
         <object>objects\keyItem</object>
       </objects>
     </objects>
+    <object>objects\testProjectile</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\beginningRm</room>
