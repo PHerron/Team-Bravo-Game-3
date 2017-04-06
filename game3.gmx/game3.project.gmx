@@ -17,10 +17,16 @@
     <sprite>sprites\woodSwordSprite</sprite>
     <sprite>sprites\woodShieldSprite</sprite>
     <sprite>sprites\wallSpr</sprite>
+    <sprite>sprites\dungeonWallSpr</sprite>
     <sprite>sprites\testProjectileSprite</sprite>
+    <sprite>sprites\enemy1Spr</sprite>
+    <sprite>sprites\enemy2Spr</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\calculateAngleToTarget.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\pauseControl</object>
     <object>objects\supervisor</object>
@@ -30,6 +36,7 @@
     <objects name="Terrain">
       <object>objects\wallObj</object>
       <object>objects\ground</object>
+      <object>objects\dungeonWallObj</object>
     </objects>
     <objects name="Items">
       <object>objects\item</object>
@@ -53,10 +60,15 @@
       </objects>
     </objects>
     <object>objects\testProjectile</object>
+    <objects name="Enemies">
+      <object>objects\enemy1obj</object>
+      <object>objects\enemy2obj</object>
+    </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\beginningRm</room>
     <room>rooms\testRoom</room>
+    <room>rooms\testDungeonRm</room>
+    <room>rooms\beginningRm</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

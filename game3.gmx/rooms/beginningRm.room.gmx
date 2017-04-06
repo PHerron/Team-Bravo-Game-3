@@ -156,7 +156,6 @@
     <instance objName="wallObj" x="640" y="0" name="inst_CDE9FC15" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="wallObj" x="608" y="0" name="inst_D4B08479" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="wallObj" x="576" y="0" name="inst_BE496182" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="wallObj" x="544" y="0" name="inst_27DEE56D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="wallObj" x="992" y="0" name="inst_44138411" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="wallObj" x="1024" y="64" name="inst_1C8B098E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="wallObj" x="1024" y="32" name="inst_D700F992" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -198,6 +197,8 @@
     <instance objName="wallObj" x="288" y="448" name="inst_BABB85E0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="hero" x="512" y="640" name="inst_2C823E7B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="supervisor" x="320" y="256" name="inst_C648A53C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="wallObj" x="416" y="0" name="inst_616C178C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="wallObj" x="448" y="0" name="inst_0DC8385C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
