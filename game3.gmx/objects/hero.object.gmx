@@ -320,7 +320,7 @@ if(attackKey) {
             <string>/// Debug
 
 draw_self();
-
+draw_set_color(c_black);
 // Display Debug Text
 // Movement Axes
 draw_text(view_xview[0]+10, view_yview[0]+10, 

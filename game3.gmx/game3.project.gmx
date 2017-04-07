@@ -21,6 +21,7 @@
     <sprite>sprites\testProjectileSprite</sprite>
     <sprite>sprites\enemy1Spr</sprite>
     <sprite>sprites\enemy2Spr</sprite>
+    <sprite>sprites\enemy3Spr</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -63,6 +64,8 @@
     <objects name="Enemies">
       <object>objects\enemy1obj</object>
       <object>objects\enemy2obj</object>
+      <object>objects\enemy3obj</object>
+      <object>objects\enemy3Teleporter</object>
     </objects>
   </objects>
   <rooms name="rooms">
