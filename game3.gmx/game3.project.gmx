@@ -21,8 +21,11 @@
     <sprite>sprites\testProjectileSprite</sprite>
     <sprite>sprites\enemy1Spr</sprite>
     <sprite>sprites\enemy2Spr</sprite>
+    <sprite>sprites\doorSprite</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background0</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\calculateAngleToTarget.gml</script>
@@ -64,11 +67,12 @@
       <object>objects\enemy1obj</object>
       <object>objects\enemy2obj</object>
     </objects>
+    <object>objects\beginningDoor</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\beginningRm</room>
     <room>rooms\testRoom</room>
     <room>rooms\testDungeonRm</room>
-    <room>rooms\beginningRm</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
