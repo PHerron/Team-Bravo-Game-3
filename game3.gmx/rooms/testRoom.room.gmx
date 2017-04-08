@@ -207,8 +207,6 @@
     <instance objName="wallObj" x="192" y="256" name="inst_0F873565" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="enemy1obj" x="736" y="64" name="inst_4EA0AE54" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="enemy2obj" x="896" y="672" name="inst_F9F12104" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="&lt;undefined&gt;" x="160" y="608" name="inst_53C73DCA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="&lt;undefined&gt;" x="256" y="576" name="inst_58DF91B6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="enemy3obj" x="96" y="512" name="inst_B6B17AED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="enemy3Teleporter" x="128" y="576" name="inst_7C21F8DE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
