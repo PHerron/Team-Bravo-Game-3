@@ -140,6 +140,9 @@ rAxisDirection = point_direction(0, 0, vLookAxis, hLookAxis) + 90; // Takes axis
 rAxisTotal = hLookAxis + vLookAxis; // Sum of horizontal and vertical stick movement; 0-1
 rAxisSpeed = mean(abs(hLookAxis), abs(vLookAxis)); // Current Turn Speed
 rAxisSpeedMax = max(abs(hLookAxis), abs(vLookAxis)); // Max Turn Speed
+
+// Depth
+depth = y;
 </string>
           </argument>
         </arguments>

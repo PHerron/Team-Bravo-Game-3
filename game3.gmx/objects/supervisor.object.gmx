@@ -155,8 +155,7 @@ room_goto(beginningRm);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Creates Pause Screen
-instance_create(0,0,pauseControl);
+            <string>instance_create(0,0,pauseControl);
 </string>
           </argument>
         </arguments>
