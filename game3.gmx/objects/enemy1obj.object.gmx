@@ -52,10 +52,10 @@ vsp = 0;
           <argument>
             <kind>1</kind>
             <string>/// Movement
-if distance_to_object(hero)&lt;=1024{    //prevents Bowser from running across the map to get you
+if distance_to_object(hero)&lt;=600{    //prevents Bowser from running across the map to get you
       if (collision_line(x,y,hero.x,hero.y,wallObj,true,true) = noone) {
            direction=point_direction(x,y,hero.x,hero.y);
-           speed= 2;
+           speed= 1.5;
     }
 }
 
