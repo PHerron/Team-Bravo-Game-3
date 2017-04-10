@@ -53,8 +53,8 @@ alarm[0] = (7*room_speed/2)
           <argument>
             <kind>1</kind>
             <string>/// Shoot Timer Event
-p = instance_create(x, y+8, testProjectile)
-p.speed = 2.5
+p = instance_create(x, y+8, enemy2Projectile)
+p.speed = 7
 p.direction = calculateAngleToTarget(x,y, hero.x, hero.y)
 
     

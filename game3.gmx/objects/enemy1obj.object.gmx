@@ -55,7 +55,7 @@ vsp = 0;
 if distance_to_object(hero)&lt;=600{    //prevents Bowser from running across the map to get you
       if (collision_line(x,y,hero.x,hero.y,wallObj,true,true) = noone) {
            direction=point_direction(x,y,hero.x,hero.y);
-           speed= 1.5;
+           speed= 1.7;
     }
 }
 

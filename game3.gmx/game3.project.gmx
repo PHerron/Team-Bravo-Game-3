@@ -8,8 +8,14 @@
     <sound>sound\enemyHurt</sound>
     <sound>sound\playerHurt</sound>
     <sound>sound\gameOver</sound>
-    <sound>sound\coinSnd</sound>
-    <sound>sound\explosionSnd</sound>
+    <sound>sound\itemPickup</sound>
+    <sound>sound\explosion</sound>
+    <sound>sound\fire</sound>
+    <sound>sound\enemyDeath</sound>
+    <sound>sound\snakePopUp</sound>
+    <sound>sound\wizardSndEffect</sound>
+    <sound>sound\gameOverAlternate</sound>
+    <sound>sound\idk</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\heroSprite</sprite>
@@ -25,6 +31,8 @@
     <sprite>sprites\appleSprite</sprite>
     <sprite>sprites\leatherArmorSprite</sprite>
     <sprite>sprites\enemy3Spr</sprite>
+    <sprite>sprites\enemy2ProjSpr</sprite>
+    <sprite>sprites\enemy3ProjSpr</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -43,6 +51,7 @@
       <object>objects\wallObj</object>
       <object>objects\ground</object>
       <object>objects\dungeonWallObj</object>
+      <object>objects\beginningDoor</object>
     </objects>
     <objects name="Items">
       <object>objects\item</object>
@@ -65,15 +74,18 @@
       <objects name="Key Items">
         <object>objects\keyItem</object>
       </objects>
+      <objects name="Projectiles">
+        <object>objects\testProjectile</object>
+        <object>objects\enemy3Projectile</object>
+        <object>objects\enemy2Projectile</object>
+      </objects>
     </objects>
-    <object>objects\testProjectile</object>
     <objects name="Enemies">
       <object>objects\enemy1obj</object>
       <object>objects\enemy2obj</object>
       <object>objects\enemy3obj</object>
       <object>objects\enemy3Teleporter</object>
     </objects>
-    <object>objects\beginningDoor</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\beginningRm</room>
