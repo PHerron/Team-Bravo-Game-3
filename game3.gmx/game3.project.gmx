@@ -33,6 +33,8 @@
     <sprite>sprites\enemy3Spr</sprite>
     <sprite>sprites\enemy2ProjSpr</sprite>
     <sprite>sprites\enemy3ProjSpr</sprite>
+    <sprite>sprites\explosionSprite</sprite>
+    <sprite>sprites\explosionMiniSpr</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -87,6 +89,8 @@
       <object>objects\enemy3Teleporter</object>
       <object>objects\enemy4obj</object>
       <object>objects\enemy5obj</object>
+      <object>objects\explosionObj</object>
+      <object>objects\explosionMiniObj</object>
     </objects>
   </objects>
   <rooms name="rooms">
