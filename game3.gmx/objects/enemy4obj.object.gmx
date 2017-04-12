@@ -26,9 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>hp = 100;
-speed = 4;
+//speed = 4;
 hsp = 0;
 vsp = 0;
+count = 0;
 
 
 </string>
@@ -53,9 +54,9 @@ vsp = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_destroy();
-instance_create(x,y,explosionObj);
+            <string>instance_create(x,y,explosionObj);
 instance_create(x,y,explosionMiniObj);
+instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -83,9 +84,8 @@ if distance_to_object(hero)&lt;=600{    //prevents Bowser from running across th
       if (collision_line(x,y,hero.x,hero.y,wallObj,true,true) = noone) {
            direction=point_direction(x,y,hero.x,hero.y);
            speed= 3;
-    }
+        }
 }
-
 // Collision Detection and Correction
 if(place_meeting(x+hsp, y, wallObj)) { // Horizontal Check
     while(!place_meeting(x+sign(hsp), y, wallObj)) x += sign(hsp); // If close to wall but not against it, move until against it
@@ -96,9 +96,13 @@ if(place_meeting(x, y+vsp, wallObj)) { // Vertical Check
     vsp = 0; // If against wall, stop moving
 } // end if line25
 
-if distance_to_object(hero)&lt;= 10{
+
+if distance_to_object(hero) &lt;= 10{
      speed = 0;
-     alarm[0] = 5;
+     count ++;
+     if count &gt;10{
+     alarm[0] =1;
+     }
 }
 </string>
           </argument>

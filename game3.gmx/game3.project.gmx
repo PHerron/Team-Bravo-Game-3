@@ -35,6 +35,12 @@
     <sprite>sprites\enemy3ProjSpr</sprite>
     <sprite>sprites\explosionSprite</sprite>
     <sprite>sprites\explosionMiniSpr</sprite>
+    <sprites name="buttons">
+      <sprite>sprites\exitGameSpr</sprite>
+      <sprite>sprites\returnToTitleSpr</sprite>
+      <sprite>sprites\playButtonSpr</sprite>
+    </sprites>
+    <sprite>sprites\titleSpr</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -91,11 +97,19 @@
       <object>objects\enemy5obj</object>
       <object>objects\explosionObj</object>
       <object>objects\explosionMiniObj</object>
+      <object>objects\finalBoss</object>
     </objects>
+    <objects name="buttons">
+      <object>objects\exitButton</object>
+      <object>objects\returnTitle</object>
+      <object>objects\playButton</object>
+    </objects>
+    <object>objects\title</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\beginningRm</room>
     <room>rooms\testRoom</room>
+    <room>rooms\titleScreen</room>
+    <room>rooms\beginningRm</room>
     <room>rooms\testDungeonRm</room>
   </rooms>
   <help>

@@ -98,7 +98,7 @@ if gamepad_button_check_pressed(0,gp_start){
           <argument>
             <kind>1</kind>
             <string>/// Draws GUI in Pause Screen
-draw_set_color(c_aqua);
+draw_set_color(c_ltgray);
 draw_set_halign(fa_center);
 draw_set_valign(fa_center);
 draw_text(view_wview[0]/2, view_hview[0]/2, "PAUSED");
