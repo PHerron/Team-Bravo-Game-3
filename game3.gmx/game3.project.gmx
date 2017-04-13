@@ -107,9 +107,14 @@
     <object>objects\title</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\testRoom</room>
     <room>rooms\titleScreen</room>
     <room>rooms\beginningRm</room>
+    <room>rooms\ow1_1</room>
+    <room>rooms\ow1_2</room>
+    <room>rooms\ow1_3</room>
+    <room>rooms\ow1_4</room>
+    <room>rooms\ow1_5</room>
+    <room>rooms\testRoom</room>
     <room>rooms\testDungeonRm</room>
   </rooms>
   <help>
