@@ -41,6 +41,7 @@
       <sprite>sprites\playButtonSpr</sprite>
     </sprites>
     <sprite>sprites\titleSpr</sprite>
+    <sprite>sprites\finalBossSpr</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
