@@ -169,6 +169,7 @@
     <instance objName="dungeonWallObj" x="0" y="0" name="inst_815C3A02" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="supervisor" x="192" y="192" name="inst_1A38AD27" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="finalBoss" x="768" y="384" name="inst_15679A5C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="GUI_Code" x="96" y="288" name="inst_6C99E495" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

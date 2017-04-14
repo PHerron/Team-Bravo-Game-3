@@ -42,6 +42,9 @@
     </sprites>
     <sprite>sprites\titleSpr</sprite>
     <sprite>sprites\finalBossSpr</sprite>
+    <sprite>sprites\finalFireSPr</sprite>
+    <sprite>sprites\deathCircleSpr</sprite>
+    <sprite>sprites\sprExplosion</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -99,6 +102,8 @@
       <object>objects\explosionObj</object>
       <object>objects\explosionMiniObj</object>
       <object>objects\finalBoss</object>
+      <object>objects\bossProjectile</object>
+      <object>objects\deathCircle</object>
     </objects>
     <objects name="buttons">
       <object>objects\exitButton</object>
@@ -106,6 +111,8 @@
       <object>objects\playButton</object>
     </objects>
     <object>objects\title</object>
+    <object>objects\objExplosion</object>
+    <object>objects\GUI_Code</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\titleScreen</room>
